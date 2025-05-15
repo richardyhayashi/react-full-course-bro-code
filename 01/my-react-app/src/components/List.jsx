@@ -14,11 +14,16 @@ const List = () => {
   //fruits.sort((a, b) => a.calories - b.calories); // NUMERICAL
   //fruits.sort((a, b) => b.calories - a.calories); // NUMERICAL
 
-  const listItems = fruits.map((fruit) => (
-    <li key={fruit.id}>
-      {fruit.name}: &nbsp;<b>{fruit.calories}</b>
-    </li>
-  ));
+  //const lowCalFruits = fruits.filter((fruit) => fruit.calories < 100);
+  //const hiCalFruits = fruits.filter(fruit => fruit.calories >= 100);
+
+   //const listItems = lowCalFruits.map((fruit) => (
+   //const listItems = hiCalFruits.map((fruit) => (
+   const listItems = fruits.map((fruit) => (
+     <li key={fruit.id}>
+       {fruit.name}: &nbsp;<b>{fruit.calories}</b>
+     </li>
+   ));
 
   return <ol>{listItems}</ol>;
 };
