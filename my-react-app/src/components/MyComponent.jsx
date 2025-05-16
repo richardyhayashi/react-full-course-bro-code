@@ -1,32 +1,33 @@
-import React, {useState} from 'react'
+import { useState } from "react";
 
 const MyComponent = () => {
-   const [count, setCount] = useState(0);
+   const [car, setCar] = useState({
+                                    year: 2024,
+                                    make: "Ford",
+                                    model: "Mustang",
+                                 });
+      const handleYearChange = (e) => {
+         setCar(c => ({ ...c, year: e.target.value }));
+      }
 
-   const increment = () => {
-      setCount((c) => c + 1);
-      setCount((c) => c + 1);
-      setCount((c) => c + 1);
-   }
-   
-   const decrement = () => {
-      setCount((c) => c - 1);
-      setCount((c) => c - 1);
-      setCount((c) => c - 1);
-   }
-   
-   const reset = () => {
-      setCount(0);
-   }
+      const handleMakeChange = (e) => {
+         setCar(c => ({ ...c, make: e.target.value }));
+      };
 
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={reset}>Reset</button>
-      <button onClick={increment}>Increment</button>
-    </div>
-  );
+      const handleModelChange = (e) => {
+         setCar(c=> ({ ...c, model: e.target.value }));
+      };
+
+    return (
+      <div>
+        <p>
+          Your favorite car is: {car.year} {car.make} {car.model}
+        </p>
+        <input type="number" value={car.year} onChange={handleYearChange} />
+        <input type="text" value={car.make} onChange={handleMakeChange} />
+        <input type="text" value={car.model} onChange={handleModelChange} />
+      </div>
+    );
 };
 
 export default MyComponent;
